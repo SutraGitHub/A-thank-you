@@ -1,0 +1,141 @@
+<style>
+
+    #topbar {
+        background-color: rgb(6, 0, 84);
+        background-image: "class.svg.svg";
+    }
+    #title {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        text-rendering: optimizeLegibility; 
+        color: whitesmoke;
+        font-size: 0.8in;
+        padding-top: 1.2in;
+        padding-bottom: 1.2in;
+        margin-left: 20%;
+    }
+    .introduction {
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        padding-top: 1in;
+        padding-bottom: 1in;
+    }
+    .text {
+        margin-left: 20%;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        padding-top: 30px;
+        margin-right: 20%
+    }
+    * {
+        margin: 0px;
+        font-size: 105%;
+    }
+    #display {
+        background-color: #edf6ff;
+        padding-top: 0.75in;
+        padding-bottom: 0.75in;
+    }
+</style>
+
+<head>
+
+    <title> A Thank You | 6th Grade </title>
+
+</head>
+
+<body style="margin: 0px;">
+    <div id="TopBar">
+            <h1 id="title">A Thank You</h1>
+    </div>
+
+    <div style="background-color:f6efe5;" class="introduction">
+
+        <h1 style=" margin-left: 20%; color:rgb(106, 65, 12); font-size: 0.35in;">What This is All About</h1>
+
+        <p class="text">Since you've been a great teacher this year, we (and by that i mean a couple of people dragged everyone else into this)
+                wanted to make something for you! This is a website where we will host some words from (hopefully) each student.
+        </p>
+
+        <p class="text">  To access the messages, you can type in someone's <i>first</i> name, and it will change the text below to what 
+        they wrote. Just type, no need to click on anything. <strong> No capitalization is needed, and no spaces either.</strong> Keep in mind that you'll have
+        to type quickly, as the text you typed will delete itself after one seconds. Finally, thank you for everything you've done for us! </p>
+
+    </div>
+
+    <div id="display">
+
+        <h1 class="text" style="color:darkslateblue; font-size: 0.35in;">The Text Reel</h1>
+
+        <p class="text" id="para"> Start typing! The text will appear here. </p>
+
+    </div>
+</body>
+
+<script> 
+
+    document.addEventListener('DOMContentLoaded', () => {
+       'use strict';
+
+        keyMapper();
+    });
+
+    function keyMapper() {
+        let buffer = [];
+        let lastKeyTime = Date.now();
+
+        let kev = ['k', 'e', 'v', 'i', 'n']
+        let bran = ['b', 'r', 'a', 'n', 'd', 'o', 'n']
+        let dan = ['d', 'a', 'n', 'n', 'y']
+        let bri = ['b', 'r', 'i', 'g', 'h', 't', 'e', 'n']
+
+        document.addEventListener('keydown', event => {
+            const charList = 'abcdefghijklmnopqrstuvwxyz0123456789';
+            const key = event.key.toLowerCase();
+
+            // we are only interested in alphanumeric keys
+            if (charList.indexOf(key) === -1) return;
+
+            const currentTime = Date.now();
+
+            if (currentTime - lastKeyTime > 1000) {
+                buffer = [];
+            }
+
+            buffer.push(key);
+            lastKeyTime = currentTime;
+
+            // console.log(buffer);
+
+            if (checkBuffer(kev, buffer)) {
+                replaceText('"Dear Mrs. Stenseth, ever since trimester 1 I haven’t put real effort whatsoever into my work such as homework and responsibilities. But now in trimester 3, I’ve started to complete my homework, become more serious into work, and positivity. To summarize this short thank you, I am grateful due to the hard work and effort you put in trying to improve the class. Truly, thank you."', '-Sincerely, Kevin')
+            } else if (checkBuffer(bran, buffer)) {
+                replaceText('"Can i get a 2 goodest teacher and a woo!"', '-Brandon')
+            } else if (checkBuffer(dan, buffer)) {
+                replaceText('"Mrs.Stenseth, you are a phenomenal teacher! You have helped me a plethora of times, helping me get in Oxford and assisting me in Pentathlon. You have also gave us many snacks for [the] SBAC, some of which i gave to Chris.  . . .  You are really good at teaching, and I will always remember you!"', '-Danny')
+            } else if (checkBuffer(bri, buffer)) {
+                replaceText('"Dear Mrs. Stenseth, Thank you for making sixth grade such a fun grade for me. I wouldn’t doubt that everyone thinks the same thing too. Thank you for giving me so many opportunities to learn so many interesting subjects and challenging projects that molded me into the person I am today. You don’t understand how much you have given me, especially to make the right choices and to be a good genuine student. I am so grateful that you were my teacher. Thank you for giving me the strength I needed to succeed in my dream to become a pilot for Delta. You don’t just teach, you make us prepared for Junior High and make me prepared for the twisty road ahead of me. Your sacrifices aren’t hidden. You have made the biggest impact for me and all of our classmates. I am extremely grateful for that."', 'Sincerely, Brighten Nguyen, a future pilot. (For Delta)')
+            }
+        });
+    }
+
+    function checkBuffer (listcheck, buffer) {
+        if (arrayEquals(buffer, listcheck) == true) {
+            console.log('correct.');
+            return(true);
+        } else {
+            console.log('wrong.');
+            return(false);
+        }
+        
+    }
+
+    function arrayEquals(a, b) {
+        return Array.isArray(a) &&
+            Array.isArray(b) &&
+            a.length === b.length &&
+            a.every((val, index) => val === b[index]);
+    }
+    
+    function replaceText(text, author) {
+        document.getElementById('para').innerHTML
+            = String(text) + '<br>' + '<br>' + String(author);
+    }
+</script>
