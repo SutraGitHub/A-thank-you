@@ -107,12 +107,18 @@
             if (checkBuffer(kev, buffer)) {
                 replaceText('"Dear Mrs. Stenseth, ever since trimester 1 I haven’t put real effort whatsoever into my work such as homework and responsibilities. But now in trimester 3, I’ve started to complete my homework, become more serious into work, and positivity. To summarize this short thank you, I am grateful due to the hard work and effort you put in trying to improve the class. Truly, thank you."', '-Sincerely, Kevin')
             } else if (checkBuffer(bran, buffer)) {
-                replaceText('"Can i get a 2 goodest teacher and a woo!"', '-Brandon')
+                replaceText('"Can i get a 2 good(est) teacher, and a woo!"', '-Brandon')
             } else if (checkBuffer(dan, buffer)) {
-                replaceText('"Mrs.Stenseth, you are a phenomenal teacher! You have helped me a plethora of times, helping me get in Oxford and assisting me in Pentathlon. You have also gave us many snacks for [the] SBAC, some of which i gave to Chris.  . . .  You are really good at teaching, and I will always remember you!"', '-Danny')
+                replaceText('"Mrs.Stenseth, you are a phenomenal teacher! You have helped me a plethora of times, helping me get in Oxford and assisting me in Pentathlon. You have also gave us many snacks for [the] SBAC, some of which i gave to Chris. Good times. You are really good at teaching, and I will always remember you!"', '-Danny')
             } else if (checkBuffer(bri, buffer)) {
                 replaceText('"Dear Mrs. Stenseth, Thank you for making sixth grade such a fun grade for me. I wouldn’t doubt that everyone thinks the same thing too. Thank you for giving me so many opportunities to learn so many interesting subjects and challenging projects that molded me into the person I am today. You don’t understand how much you have given me, especially to make the right choices and to be a good genuine student. I am so grateful that you were my teacher. Thank you for giving me the strength I needed to succeed in my dream to become a pilot for Delta. You don’t just teach, you make us prepared for Junior High and make me prepared for the twisty road ahead of me. Your sacrifices aren’t hidden. You have made the biggest impact for me and all of our classmates. I am extremely grateful for that."', 'Sincerely, Brighten Nguyen, a future pilot. (For Delta)')
-            }
+            } else if (checkBuffer(['j','u','s','t','i','n'], buffer)) {
+                replaceText('"Hello Mrs. Stenseth, it is Justin Jenca Jr the Third. I would like to thank you for your hard work and for how much you made me grow. You have been rough, but that really pushed me to do better. I will remember this [grade] for a very long time. (REDACTED, but it was a comment about me being a nerd)"', '-Justin Jenca (Jr, the Third)')
+            } else if (checkBuffer(['n','i','c','k','y'], buffer)) {
+                replaceText('Dear Mrs. Stenseth,' + '<br>' + '<br>' + ' "This year will be a year that is unforgettable. Thank you for teaching me and coaching me in Pentathlon. I think that because you believed in my potential, I was able to fully succeed and improve. I truly don’t want to leave elementary school because you made my last year here too fun. The way you teach is fascinating, one of a kind and just really unique. You add necessary humor to lessons, making the lesson not boring, instead funny & joyful. It holds people’s attention, mine for sure. It has really hooked me. Once again, thank you Mrs. Stenseth for everything, thank you for your advice, inspiration words, and that one time you let me under your umbrella when it was raining. I appreciate you for all that you have done for me. I promise I’ll come back one day to visit. I promise to make good choices in life. Even if you don’t remember me, it’s fine. Keep touching lives one by one, and impacting them like how you did to me. I will miss you on my new journey of life. I wish you the best. “Goodbyes are not forever, are not the end; it simply means I’ll miss you, until we meet again.” - Unknown. This one is temporary. Goodbye Mrs. Stenseth :)"', 'Love, Nicky Trinh')
+            } else if (checkBuffer['s','e','h','w','a','n'], buffer) {
+                replaceText('""')
+            } 
         });
     }
 
